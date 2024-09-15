@@ -1,9 +1,5 @@
 package p2p
 
-type HandShaker interface {
-	Handshake() error
-}
+type HandshakerFunc func(Peer) error
 
-type HandshakerFunc func() error
-
-type DefualtHandshaker struct{}
+func NOPHandshakeFunc(Peer) error { return nil }
